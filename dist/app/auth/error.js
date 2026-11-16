@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tokenRevoked = exports.unauthorized = exports.invalidCredentials = exports.otpExpired = exports.invalidCode = exports.userVerified = exports.userNotVerified = exports.userNotExist = exports.userExist = void 0;
+const app_error_1 = require("../../lib/error/app-error");
+exports.userExist = new app_error_1.AppError('User already exists with this email', 409);
+exports.userNotExist = new app_error_1.AppError('User does not exist', 404);
+exports.userNotVerified = new app_error_1.AppError('Please verify your email first before logging in', 403);
+exports.userVerified = new app_error_1.AppError('Account is already verified', 400);
+exports.invalidCode = new app_error_1.AppError('Invalid verification code', 400);
+exports.otpExpired = new app_error_1.AppError('Verification code has expired or was not requested', 400);
+exports.invalidCredentials = new app_error_1.AppError('Invalid email or password', 401);
+exports.unauthorized = new app_error_1.AppError('Unauthorized access, please login first', 401);
+exports.tokenRevoked = new app_error_1.AppError('Session has expired or token was revoked. Please login again.', 401);
